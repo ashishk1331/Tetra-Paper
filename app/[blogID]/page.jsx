@@ -8,16 +8,48 @@ import Header from "./Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
-export async function generateMetadata({ params: { blogID }, searchParams }, parent) {
-	
+export async function generateMetadata(
+	{ params: { blogID }, searchParams },
+	parent,
+) {
 	const notion = new Client({
 		auth: process.env.NOTION_TOKEN,
 	});
 
 	const data = await notion.pages.retrieve({ page_id: blogID });
 
+	let map = {};
+	map["id"] = data.id;
+	map["created_time"] = data.created_time;
+	map["title"] = data.properties.Name.title[0].plain_text;
+	map["description"] = data.properties.description.rich_text[0].plain_text;
+	map["author"] = data.properties.Author.rich_text[0].plain_text;
+	map["tags"] = data.properties.Tags.multi_select.map((tag) => tag.name);
+
 	return {
-		title: data.properties.Name.title[0].plain_text,
+		title: map.title,
+		description: map.description,
+		metadataBase: new URL("https://blog-starter-tetrapack.vercel.app/"),
+		keywords: map.tags,
+		alternates: {
+			canonical: "/",
+			languages: {
+				"en-US": "/en-US",
+			},
+		},
+		openGraph: {
+			title: map.title,
+			description: map.description,
+			type: "article",
+			publishedTime: map.created_time,
+			authors: [map.author],
+		},
+		twitter: {
+			card: "summary",
+			title: map.title,
+			description: map.description,
+			creator: "@ashishk1331",
+		},
 	};
 }
 
