@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-secondary;
+}
+
+.h-flex{
+  @apply flex items-center
+}
+
+.v-flex{
+  @apply flex flex-col items-center
+}
+
+svg{
+  @apply w-6 h-6
+}
+h1{
+  @apply scroll-m-20 text-xl font-semibold tracking-tight
+}
+
+p{
+  @apply leading-7 [&:not(:first-child)]:my-2
+}
