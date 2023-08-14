@@ -6,6 +6,10 @@ This is a starter template which relies on Tetra-Pack to render pages from notio
 
 Made for the minilists!
 
+## Example
+
+[Try it out here.](https://blog-starter-tetrapack.vercel.app/)
+
 ## Usage
 
 1. Clone this repository
