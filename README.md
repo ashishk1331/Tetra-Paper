@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Banner Image]()
 
-## Getting Started
+# Blog Template using Tetra Pack
 
-First, run the development server:
+This is a starter template which relies on Tetra-Pack to render pages from notion. It is created using tetrapack, tailwind css, also the tailwind typography plugin and the almighty nextJS. Hail Phosphor Icons for every icon you see here.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Made for the minilists!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone this repository
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Make changes in `blog.config.js`
+	You can change the tag line, description, social contacts and website title.
 
-## Learn More
+1. Duplicate the blog [notion template](https://flower-stork-026.notion.site/df07ae189a954ddc893c9dbc313e46ff?v=532d57556bc64d4aa9da958f69d14f0c) and get the id of the page. This key will serve as `NOTION_DATABASE` key that is to be put in the `.env` file.
 
-To learn more about Next.js, take a look at the following resources:
+1. Also, get the `NOTION_TOKEN` from your notion developer dashboard.
+	Remember, the token must be connected to your database as well.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. After you've collected those two keys, create a `.env` file at the root of your directory.
+	```bash
+	NOTION_TOKEN = <NOTION_TOKEN>
+	NOTION_DATABASE = <NOTION_DATABASE>
+	```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Check all the steps. If done, run the app in dev mode
+	```bash
+	npm run dev
+	```
 
-## Deploy on Vercel
+1. Lastly, if you get the preview correct you can host the blog anywhere you like.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you don't get it or some things aren't working contact [ashishk](https://twitter.com/AshishK1331)

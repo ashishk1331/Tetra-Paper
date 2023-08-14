@@ -12,6 +12,7 @@ export const size = {
 
 export const contentType = "image/png";
 
+
 export default async function Image({ blogID }) {
     const notion = new Client({
         auth: process.env.NOTION_TOKEN,

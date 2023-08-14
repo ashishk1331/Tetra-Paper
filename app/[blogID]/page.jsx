@@ -39,6 +39,8 @@ export async function generateMetadata(
 		},
 		openGraph: {
 			title: map.title,
+			url: 'https://blog-starter-tetrapack.vercel.app/',
+    		siteName: 'blog-starter-tetrapack.vercel.app',
 			description: map.description,
 			type: "article",
 			publishedTime: map.created_time,
@@ -75,25 +77,25 @@ export default async function Page(props) {
 									width={1040}
 									height={1040}
 									src={url}
-									alt="image found"
+									alt="Image link expired."
 									className="object-contain rounded"
 								/>
 								<figcaption>{caption}</figcaption>
 							</figure>
 						),
 						to_do: (text, checked) => (
-							<span className="h-flex">
+							<span className="h-flex gap-2">
 								<input
 									checked={checked}
 									readOnly
 									type="checkbox"
-									className="form-checkbox rounded text-fore"
+									className="form-checkbox rounded text-primary"
 								/>
 								<p>{text}</p>
 							</span>
 						),
 						callout: function (text, callout_image) {
-							<span className="p-4 border border-fore/50 rounded my-8">
+							<span className="p-4 border border-primary/50 rounded my-8">
 								{this.callout_image()}
 								<p>{text}</p>
 							</span>;
@@ -101,7 +103,7 @@ export default async function Page(props) {
 						callout_image: () => (
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								className="fill-fore inline m-4 float-left"
+								className="fill-primary inline m-4 float-left"
 								viewBox="0 0 256 256"
 							>
 								<path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.93,166,26.5,143a16,16,0,0,1,0-30L90,89.93,113,26.5a16,16,0,0,1,30,0L166.07,90,229.5,113A15.79,15.79,0,0,1,240,128Z" />
@@ -131,12 +133,6 @@ export async function generateStaticParams() {
 	await notion.databases
 		.query({
 			database_id: process.env.NOTION_DATABASE,
-			// sorts: [
-			// 	{
-			// 		property: "Created",
-			// 		direction: "descending",
-			// 	},
-			// ],
 		})
 		.then(({ results }) => {
 			results.forEach((blog) => {
