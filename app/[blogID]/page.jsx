@@ -39,8 +39,8 @@ export async function generateMetadata(
 		},
 		openGraph: {
 			title: map.title,
-			url: 'https://blog-starter-tetrapack.vercel.app/',
-    		siteName: 'blog-starter-tetrapack.vercel.app',
+			url: "https://blog-starter-tetrapack.vercel.app/",
+			siteName: "blog-starter-tetrapack.vercel.app",
 			description: map.description,
 			type: "article",
 			publishedTime: map.created_time,
@@ -71,18 +71,7 @@ export default async function Page(props) {
 			<Parser blocks={blocks}>
 				{() => ({
 					blocks: {
-						image: (caption, url, key) => (
-							<figure key={key}>
-								<Image
-									width={1040}
-									height={1040}
-									src={url}
-									alt="Image link expired."
-									className="object-contain rounded"
-								/>
-								<figcaption>{caption}</figcaption>
-							</figure>
-						),
+						image: (caption, url, key) => null,
 						to_do: (text, checked) => (
 							<span className="h-flex gap-2">
 								<input
